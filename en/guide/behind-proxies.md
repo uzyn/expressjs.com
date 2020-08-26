@@ -19,7 +19,9 @@ Although the app will not fail to run if the application variable `trust proxy` 
     <tr>
       <td>Boolean</td>
 <td markdown="1">
-If `true`, the client's IP address is understood as the left-most entry in the `X-Forwarded-*` header.
+If `true`, the client's IP address is understood as the left-most entry in the `X-Forwarded-*` header. 
+
+Note that there might be security concern if it is set to `true` on production environment, effectively allowing client to spoof IP address. It is recommended to set it specifically to the number of hops instead _(see Number type)_.
 
 If `false`, the app is understood as directly facing the Internet and the client's IP address is derived from `req.connection.remoteAddress`. This is the default setting.
 </td>
